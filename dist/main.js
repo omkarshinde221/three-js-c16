@@ -138,11 +138,10 @@ var url = new URL(queryString);
 var sender = url.searchParams.get("sender");
 var receiver = url.searchParams.get("receiver");
 var amount = url.searchParams.get("amount");
-var sender1 = url.searchParams.get("sender1");
-var receiver1 = url.searchParams.get("receiver1");
-var amount1 = url.searchParams.get("amount1");
+
 var creator = url.searchParams.get("creator");
 var time = url.searchParams.get("time");
+var ttime = url.searchParams.get("ttime");
 var size = url.searchParams.get("size");
 var tsize = url.searchParams.get("tsize");
 var reward = url.searchParams.get("reward");
@@ -161,7 +160,7 @@ context2.fillStyle='white';
 context2.fillRect(3, 3, 256, 256);
 context2.fillStyle='black';
 context2.font = "400 12px Arial";
-context2.fillText("{ ", 6, 20);
+context2.fillText("[ { ", 6, 20);
 context2.fillText("Block Number:2 ", 13, 40);
 context2.fillText("Block created by : ", 13, 60);
 context2.fillText(creator, 113, 60);
@@ -180,8 +179,10 @@ context2.fillText("'receiver:' ", 23, 200 );
 context2.fillText(receiver, 73, 200);
 context2.fillText("'amount:' ", 23, 220 );
 context2.fillText(amount, 73, 220);
-context2.fillText("} ", 43, 240);
-context2.fillText("} ", 3, 280);
+context2.fillText("'Timestamp:' ", 23, 240 );
+context2.fillText(ttime, 93, 240);
+context2.fillText("} ", 43, 250);
+context2.fillText("} ]", 63, 250);
 
 let canvasTexture2 = new THREE.CanvasTexture( canvas2 );
 
