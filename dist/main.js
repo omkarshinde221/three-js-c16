@@ -48,7 +48,7 @@ var context = canvas.getContext("2d");
 context.fillStyle='white';
 context.fillRect(3, 3, 256, 256);
 context.fillStyle='black';
-context.font = "400 12px Arial";
+context.font = "450 14px muli extralight";
 context.fillText("{ ", 6, 20);
 context.fillText("Block Number:0 ", 13, 40);
 context.fillText("Block created by : nsndcn23782njhnjcdf", 13, 60);
@@ -93,7 +93,7 @@ var context1 = canvas1.getContext("2d");
 context1.fillStyle='white';
 context1.fillRect(3, 3, 256, 256);
 context1.fillStyle='black';
-context1.font = "400 12px Arial";
+context1.font = "450 14px muli extralight";
 context1.fillText("{ ", 6, 20);
 context1.fillText("Block Number:1 ", 13, 40);
 context1.fillText("Block created by : nsndcn23782njhnjcdf", 13, 60);
@@ -143,8 +143,8 @@ var creator = url.searchParams.get("creator");
 var time = url.searchParams.get("time");
 var ttime = url.searchParams.get("ttime");
 var size = url.searchParams.get("size");
+var difficulty = url.searchParams.get("difficulty");
 var tsize = url.searchParams.get("tsize");
-var reward = url.searchParams.get("reward");
 
 // console.log("Value is:" + pair[1]);
 
@@ -154,35 +154,35 @@ var reward = url.searchParams.get("reward");
 //Cube3
 console.log("**")
 var canvas2 = document.createElement('canvas');
-canvas2.width = canvas2.height = 256;
+canvas2.width = canvas2.height = 384;
 var context2 = canvas2.getContext("2d");
 context2.fillStyle='white';
-context2.fillRect(3, 3, 256, 256);
+context2.fillRect(3, 3, 384, 384);
 context2.fillStyle='black';
-context2.font = "400 12px Arial";
+context2.font = "450 20px muli extralight";
 context2.fillText("[ { ", 6, 20);
-context2.fillText("Block Number:2 ", 13, 40);
-context2.fillText("Block created by : ", 13, 60);
-context2.fillText(creator, 113, 60);
-context2.fillText("Block verification reward : ", 13, 80);
-context2.fillText(reward, 153, 80);
-context2.fillText("Block size : ", 13, 100);
-context2.fillText(size, 83, 100);
-context2.fillText("Timestamp : ", 13, 120);
-context2.fillText(time, 83, 120);
-context2.fillText("Total size : ", 13, 140);
-context2.fillText(tsize, 83, 140);
-context2.fillText("Transactions:  { ", 13, 160);
-context2.fillText("'sender:' ", 23, 180, );
-context2.fillText(sender, 73, 180);
-context2.fillText("'receiver:' ", 23, 200 );
-context2.fillText(receiver, 73, 200);
-context2.fillText("'amount:' ", 23, 220 );
-context2.fillText(amount, 73, 220);
-context2.fillText("'Timestamp:' ", 23, 240 );
-context2.fillText(ttime, 93, 240);
-context2.fillText("} ", 43, 250);
-context2.fillText("} ]", 63, 250);
+context2.fillText("Block Number:2 ", 13, 50);
+context2.fillText("Block created by : ", 13, 80);
+context2.fillText(creator, 163, 80);
+context2.fillText("Block size : ", 13, 110);
+context2.fillText(size, 113, 110);
+context2.fillText("Timestamp : ", 13, 135);
+context2.fillText(time, 113, 135);
+context2.fillText("Total size : ", 13, 160);
+context2.fillText(tsize, 113, 160);
+context2.fillText("Difficulty : ", 13, 190);
+context2.fillText(tsize, 113, 190);
+context2.fillText("Transactions:  { ", 13, 215);
+context2.fillText("'sender:' ", 23, 240 );
+context2.fillText(sender, 103, 240);
+context2.fillText("'receiver:' ", 23, 270 );
+context2.fillText(receiver, 103, 270);
+context2.fillText("'amount:' ", 23, 300 );
+context2.fillText(amount, 103, 300);
+context2.fillText("'Timestamp:' ", 23, 330 );
+context2.fillText(ttime +"} ", 133, 330);
+context2.fillText("} ", 43, 360);
+context2.fillText(" ]", 63, 380);
 
 let canvasTexture2 = new THREE.CanvasTexture( canvas2 );
 
@@ -220,15 +220,6 @@ const controls = new OrbitControls(camera, renderer.domElement)
 function animate(){
   requestAnimationFrame(animate);
 
-  // cube.rotation.x += 0.001;
-  // cube.rotation.y += 0.005;
-
-  // cube1.rotation.x += 0.005;
-  // cube1.rotation.y += 0.001;
-
-  // cube2.rotation.x += 0.005;
-  // cube2.rotation.y += 0.001;
-  // cube.rotation.z += 0.01;
 
   controls.update()
 
