@@ -107,14 +107,20 @@ cube1.position.x = -30;
 
 const queryString = window.location.href;
 var url = new URL(queryString);
-var transaction = url.searchParams.get("transaction");
 
-var creator = url.searchParams.get("creator");
-var time = url.searchParams.get("time");
-var ttime = url.searchParams.get("ttime");
-var size = url.searchParams.get("size");
-var difficulty = url.searchParams.get("difficulty");
-var tsize = url.searchParams.get("tsize");
+var creator1 = url.searchParams.get("creator1");
+var time1 = url.searchParams.get("time1");
+var bsize1 = url.searchParams.get("bsize1");
+var difficulty1 = url.searchParams.get("difficulty1");
+var tsize1 = url.searchParams.get("tsize1");
+
+var creator2 = url.searchParams.get("creator2");
+var time2 = url.searchParams.get("time2");
+var bsize2 = url.searchParams.get("bsize2");
+var difficulty2 = url.searchParams.get("difficulty2");
+var tsize2 = url.searchParams.get("tsize2");
+
+
 var thash1 = url.searchParams.get("thash1");
 var thash2 = url.searchParams.get("thash2");
 var phash1 = url.searchParams.get("phash1");
@@ -139,15 +145,15 @@ context2.font = "450 20px muli extralight";
 context2.fillText("[ { ", 6, 20);
 context2.fillText("Block Number:2 ", 13, 50);
 context2.fillText("Block created by : ", 13, 80);
-context2.fillText(creator, 13, 100);
+context2.fillText(creator1, 13, 100);
 context2.fillText("Block size : ", 13, 125);
-context2.fillText(size, 113, 125);
+context2.fillText(bsize1, 113, 125);
 context2.fillText("Timestamp : ", 13, 150);
-context2.fillText(time, 113, 150);
+context2.fillText(time1, 113, 150);
 context2.fillText("Total size : ", 13, 170);
-context2.fillText(tsize, 113, 170);
+context2.fillText(tsize1, 113, 170);
 context2.fillText("Difficulty : ", 13, 195);
-context2.fillText(tsize, 113, 195);
+context2.fillText(difficulty1, 113, 195);
 context2.fillText("Transactions:  [ ", 13, 215);
 
 context2.fillText(thash1, 13, 240);
@@ -183,15 +189,15 @@ context3.font = "450 20px muli extralight";
 context3.fillText("[ { ", 6, 20);
 context3.fillText("Block Number:3 ", 13, 50);
 context3.fillText("Block created by : ", 13, 80);
-context3.fillText(creator, 13, 100);
+context3.fillText(creator2, 13, 100);
 context3.fillText("Block size : ", 13, 125);
-context3.fillText(size, 113, 125);
+context3.fillText(bsize2, 113, 125);
 context3.fillText("Timestamp : ", 13, 150);
-context3.fillText(time, 113, 150);
+context3.fillText(time2, 113, 150);
 context3.fillText("Total size : ", 13, 170);
-context3.fillText(tsize, 113, 170);
+context3.fillText(tsize2, 113, 170);
 context3.fillText("Difficulty : ", 13, 195);
-context3.fillText(tsize, 113, 195);
+context3.fillText(difficulty2, 113, 195);
 context3.fillText("Transactions:  [ ", 13, 215);
 
 context3.fillText(thash2, 13, 240);
