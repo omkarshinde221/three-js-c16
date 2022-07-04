@@ -13,7 +13,7 @@ const renderer = new THREE.WebGL1Renderer({
 renderer.setPixelRatio( window.devicePixelRatio);
 
 renderer.setSize( window.innerWidth, window.innerHeight);
-camera.position.setZ(90);
+camera.position.setZ(120);
 
 renderer.render(scene, camera)
 
@@ -23,23 +23,9 @@ const geometry1 = new THREE.BoxGeometry( 40, 40, 40, 100 );
 
 const geometry2 = new THREE.BoxGeometry( 40, 40, 40, 100 );
 
-function generateRandomColor(){
-    let maxVal = 0xFFFFFF; // 16777215
-    let randomNumber = Math.random() * maxVal; 
-    randomNumber = Math.floor(randomNumber);
-    randomNumber = randomNumber.toString(16);
-    let randColor = randomNumber.padStart(6, 0);   
-    return `#${randColor.toUpperCase()}`
-}
-// //image
+const geometry3 = new THREE.BoxGeometry( 40, 40, 40, 100 );
 
-// console.log("hi")
-// var imggeometry = new THREE.SphereGeometry(0.5, 32, 32);
-// var imgtexture = new THREE.TextureLoader().load( "chain.png" );
-// var imgmaterial = new THREE.MeshBasicMaterial( { map: imgtexture } );
-// var mesh = new THREE.Mesh(imggeometry, imgmaterial);
-// console.log("Hello")
-// scene.add(mesh);
+
 
 //Cube1
 var canvas = document.createElement('canvas');
@@ -52,7 +38,7 @@ context.font = "450 14px muli extralight";
 context.fillText("{ ", 6, 20);
 context.fillText("Block Number:0 ", 13, 40);
 context.fillText("Block created by : nsndcn23782njhnjcdf", 13, 60);
-context.fillText("Block verification reward: '2.312 BTC'", 13, 80);
+context.fillText("Difficulty: '5'", 13, 80);
 context.fillText("Block Size: 2", 13, 100);
 context.fillText("TimeStamp:'Wed May 8 08:58:32 2022'  ", 13, 120);
 context.fillText("Total Size: '10'  ", 13, 140);
@@ -69,7 +55,7 @@ const material = new THREE.MeshBasicMaterial( {color: 0x26a9e1 , map: canvasText
 
 const cube = new THREE.Mesh( geometry, material );
 scene.add( cube );
-cube.position.x = -60;
+cube.position.x = -80;
 
 //Line1
 const Linematerial = new THREE.LineBasicMaterial({
@@ -77,8 +63,8 @@ const Linematerial = new THREE.LineBasicMaterial({
 });
 
 const points = [];
-points.push( new THREE.Vector3( - 45, 1, 0 ) );
-points.push( new THREE.Vector3( -5, 1, -5 ) );
+points.push( new THREE.Vector3( - 105, 1, 0 ) );
+points.push( new THREE.Vector3( 80, 1, -5 ) );
 // points.push( new THREE.Vector3( 10, 0, 0 ) );
 
 const Linegeometry = new THREE.BufferGeometry().setFromPoints( points );
@@ -97,7 +83,7 @@ context1.font = "450 14px muli extralight";
 context1.fillText("{ ", 6, 20);
 context1.fillText("Block Number:1 ", 13, 40);
 context1.fillText("Block created by : nsndcn23782njhnjcdf", 13, 60);
-context1.fillText("Block verification reward: '1.312 BTC'", 13, 80);
+context1.fillText("Difficulty: '6'", 13, 80);
 context1.fillText("Block Size: 2", 13, 100);
 context1.fillText("TimeStamp:'Wed May 8 09:02:32 2022'  ", 13, 120);
 context1.fillText("Total Size: '10'  ", 13, 140);
@@ -115,29 +101,13 @@ const material1 = new THREE.MeshBasicMaterial( {color: 0x26a9e1 , map: canvasTex
 
 const cube1 = new THREE.Mesh( geometry1, material1 );
 scene.add( cube1 );
-cube1.position.x = -10;
+cube1.position.x = -30;
 
-//Line2
-const Linematerial2 = new THREE.LineBasicMaterial({
-	color: 0xffffff, linewidth: 500
-});
-
-const points2 = [];
-points2.push( new THREE.Vector3( - 5, 1, 0 ) );
-points2.push( new THREE.Vector3( 25, 1, -5 ) );
-// points.push( new THREE.Vector3( 10, 0, 0 ) );
-
-const Linegeometry2 = new THREE.BufferGeometry().setFromPoints( points2 );
-
-const line2 = new THREE.Line( Linegeometry2, Linematerial2 );
-scene.add( line2 );
 
 
 const queryString = window.location.href;
 var url = new URL(queryString);
-var sender = url.searchParams.get("sender");
-var receiver = url.searchParams.get("receiver");
-var amount = url.searchParams.get("amount");
+var transaction = url.searchParams.get("transaction");
 
 var creator = url.searchParams.get("creator");
 var time = url.searchParams.get("time");
@@ -145,6 +115,8 @@ var ttime = url.searchParams.get("ttime");
 var size = url.searchParams.get("size");
 var difficulty = url.searchParams.get("difficulty");
 var tsize = url.searchParams.get("tsize");
+var phash = url.searchParams.get("phash");
+var chash = url.searchParams.get("chash");
 
 // console.log("Value is:" + pair[1]);
 
@@ -154,35 +126,35 @@ var tsize = url.searchParams.get("tsize");
 //Cube3
 console.log("**")
 var canvas2 = document.createElement('canvas');
-canvas2.width = canvas2.height = 384;
+canvas2.width = canvas2.height = 400;
 var context2 = canvas2.getContext("2d");
 context2.fillStyle='white';
-context2.fillRect(3, 3, 384, 384);
+context2.fillRect(3, 3, 400, 400);
 context2.fillStyle='black';
 context2.font = "450 20px muli extralight";
 context2.fillText("[ { ", 6, 20);
 context2.fillText("Block Number:2 ", 13, 50);
 context2.fillText("Block created by : ", 13, 80);
-context2.fillText(creator, 163, 80);
-context2.fillText("Block size : ", 13, 110);
-context2.fillText(size, 113, 110);
-context2.fillText("Timestamp : ", 13, 135);
-context2.fillText(time, 113, 135);
-context2.fillText("Total size : ", 13, 160);
-context2.fillText(tsize, 113, 160);
-context2.fillText("Difficulty : ", 13, 190);
-context2.fillText(tsize, 113, 190);
-context2.fillText("Transactions:  { ", 13, 215);
-context2.fillText("'sender:' ", 23, 240 );
-context2.fillText(sender, 103, 240);
-context2.fillText("'receiver:' ", 23, 270 );
-context2.fillText(receiver, 103, 270);
-context2.fillText("'amount:' ", 23, 300 );
-context2.fillText(amount, 103, 300);
-context2.fillText("'Timestamp:' ", 23, 330 );
-context2.fillText(ttime +"} ", 133, 330);
-context2.fillText("} ", 43, 360);
-context2.fillText(" ]", 63, 380);
+context2.fillText(creator, 13, 100);
+context2.fillText("Block size : ", 13, 125);
+context2.fillText(size, 113, 125);
+context2.fillText("Timestamp : ", 13, 150);
+context2.fillText(time, 113, 150);
+context2.fillText("Total size : ", 13, 170);
+context2.fillText(tsize, 113, 170);
+context2.fillText("Difficulty : ", 13, 195);
+context2.fillText(tsize, 113, 195);
+context2.fillText("Transactions:  [ ", 13, 215);
+
+context2.fillText(transaction, 13, 240);
+
+context2.fillText("] ", 13, 260);
+context2.fillText("Previous Hash : ", 13, 280);
+context2.fillText(phash, 13, 300);
+context2.fillText("Current Hash : ", 13, 330);
+context2.fillText(phash, 13, 360);
+context2.fillText("} ", 43, 380);
+context2.fillText(" ]", 63, 400);
 
 let canvasTexture2 = new THREE.CanvasTexture( canvas2 );
 
@@ -190,7 +162,73 @@ const material2 = new THREE.MeshBasicMaterial( {color: 0x26a9e1 , map: canvasTex
 
 const cube2 = new THREE.Mesh( geometry2, material2 );
 scene.add( cube2 );
-cube2.position.x = 40;
+cube2.position.x = 20;
+
+
+
+
+//Cube4
+console.log("**")
+var canvas3 = document.createElement('canvas');
+canvas3.width = canvas3.height = 400;
+var context3 = canvas3.getContext("2d");
+context3.fillStyle='white';
+context3.fillRect(3, 3, 400, 400);
+context3.fillStyle='black';
+context3.font = "450 20px muli extralight";
+context3.fillText("[ { ", 6, 20);
+context3.fillText("Block Number:3 ", 13, 50);
+context3.fillText("Block created by : ", 13, 80);
+context3.fillText(creator, 13, 100);
+context3.fillText("Block size : ", 13, 125);
+context3.fillText(size, 113, 125);
+context3.fillText("Timestamp : ", 13, 150);
+context3.fillText(time, 113, 150);
+context3.fillText("Total size : ", 13, 170);
+context3.fillText(tsize, 113, 170);
+context3.fillText("Difficulty : ", 13, 195);
+context3.fillText(tsize, 113, 195);
+context3.fillText("Transactions:  [ ", 13, 215);
+
+context3.fillText(transaction, 13, 240);
+
+context3.fillText("] ", 13, 260);
+context3.fillText("Previous Hash : ", 13, 280);
+context3.fillText(phash, 13, 300);
+context3.fillText("Current Hash : ", 13, 330);
+context3.fillText(phash, 13, 360);
+context3.fillText("} ", 43, 380);
+context3.fillText(" ]", 63, 400);
+
+let canvasTexture3 = new THREE.CanvasTexture( canvas3 );
+
+const material3 = new THREE.MeshBasicMaterial( {color: 0x26a9e1 , map: canvasTexture3} );
+
+const cube3 = new THREE.Mesh( geometry3, material3 );
+scene.add( cube3 );
+cube3.position.x = 70;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 const pointLight = new THREE.PointLight(0xffffff)
