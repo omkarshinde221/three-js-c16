@@ -115,8 +115,12 @@ var ttime = url.searchParams.get("ttime");
 var size = url.searchParams.get("size");
 var difficulty = url.searchParams.get("difficulty");
 var tsize = url.searchParams.get("tsize");
-var phash = url.searchParams.get("phash");
-var chash = url.searchParams.get("chash");
+var thash1 = url.searchParams.get("thash1");
+var thash2 = url.searchParams.get("thash2");
+var phash1 = url.searchParams.get("phash1");
+var chash1 = url.searchParams.get("chash1");
+var phash2 = url.searchParams.get("phash2");
+var chash2 = url.searchParams.get("chash2");
 
 // console.log("Value is:" + pair[1]);
 
@@ -146,13 +150,13 @@ context2.fillText("Difficulty : ", 13, 195);
 context2.fillText(tsize, 113, 195);
 context2.fillText("Transactions:  [ ", 13, 215);
 
-context2.fillText(transaction, 13, 240);
+context2.fillText(thash1, 13, 240);
 
 context2.fillText("] ", 13, 260);
 context2.fillText("Previous Hash : ", 13, 280);
-context2.fillText(phash, 13, 300);
+context2.fillText(phash1, 13, 300);
 context2.fillText("Current Hash : ", 13, 330);
-context2.fillText(phash, 13, 360);
+context2.fillText(chash1, 13, 360);
 context2.fillText("} ", 43, 380);
 context2.fillText(" ]", 63, 400);
 
@@ -190,13 +194,13 @@ context3.fillText("Difficulty : ", 13, 195);
 context3.fillText(tsize, 113, 195);
 context3.fillText("Transactions:  [ ", 13, 215);
 
-context3.fillText(transaction, 13, 240);
+context3.fillText(thash2, 13, 240);
 
 context3.fillText("] ", 13, 260);
 context3.fillText("Previous Hash : ", 13, 280);
-context3.fillText(phash, 13, 300);
+context3.fillText(phash2, 13, 300);
 context3.fillText("Current Hash : ", 13, 330);
-context3.fillText(phash, 13, 360);
+context3.fillText(chash2, 13, 360);
 context3.fillText("} ", 43, 380);
 context3.fillText(" ]", 63, 400);
 
